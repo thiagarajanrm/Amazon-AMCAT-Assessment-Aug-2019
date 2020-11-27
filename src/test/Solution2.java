@@ -2,8 +2,6 @@ package test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 // IMPORT LIBRARY PACKAGES NEEDED BY YOUR PROGRAM
 // SOME CLASSES WITHING A PACKAGE MAY BE RESTRICTED
@@ -39,21 +37,14 @@ class Solution2 {
 			resultRoute.add(forwardRouteIdentifier);
 			resultRoute.add(returnRouteIdentifier);
 
-			// System.out.println("forwardRouteIdentifier,returnRouteIdentifier:" +
-			// forwardRouteIdentifier + ","
-			// + returnRouteIdentifier);
-			System.out.println("totalTravelDistance:" + totalTravelDistance);
-			if (optimalTotalTravelDistance < totalTravelDistance) {
-				optimalTotalTravelDistance = totalTravelDistance;
-				System.out.println("iValue:"+i);
-				if(i==forwardRouteList.size()-1) {
-				result.add(resultRoute);
+			if (optimalTotalTravelDistance <= totalTravelDistance) {
+				if (optimalTotalTravelDistance < totalTravelDistance) {
+					result.clear();
 				}
-			}
-			/*else if (optimalTotalTravelDistance == totalTravelDistance){
+				optimalTotalTravelDistance = totalTravelDistance;
 				result.add(resultRoute);
-			}*/
-			
+			}
+
 		}
 		System.out.println("optimalTotalTravelDistance:" + optimalTotalTravelDistance);
 		return result;
@@ -62,45 +53,74 @@ class Solution2 {
 
 	public static void main(String[] args) {
 		Solution2 ob = new Solution2();
-		int maxTravelDist = 10000;
-		List<List<Integer>> forwardRouteList = new ArrayList<>();
-		List<List<Integer>> returnRouteList = new ArrayList<>();
-		List<Integer> forwardRoute1 = new ArrayList<>();
-		forwardRoute1.add(1);
-		forwardRoute1.add(3000);
-		List<Integer> forwardRoute2 = new ArrayList<>();
-		forwardRoute2.add(2);
-		forwardRoute2.add(5000);
-		List<Integer> forwardRoute3 = new ArrayList<>();
-		forwardRoute3.add(3);
-		forwardRoute3.add(7000);
-		List<Integer> forwardRoute4 = new ArrayList<>();
-		forwardRoute4.add(4);
-		forwardRoute4.add(10000);
-		forwardRouteList.add(forwardRoute1);
-		forwardRouteList.add(forwardRoute2);
-		forwardRouteList.add(forwardRoute3);
-		forwardRouteList.add(forwardRoute4);
 
-		List<Integer> returnRoute1 = new ArrayList<>();
-		returnRoute1.add(1);
-		returnRoute1.add(2000);
-		List<Integer> returnRoute2 = new ArrayList<>();
-		returnRoute2.add(2);
-		returnRoute2.add(3000);
-		List<Integer> returnRoute3 = new ArrayList<>();
-		returnRoute3.add(3);
-		returnRoute3.add(4000);
-		List<Integer> returnRoute4 = new ArrayList<>();
-		returnRoute4.add(4);
-		returnRoute4.add(5000);
-		returnRouteList.add(returnRoute1);
-		returnRouteList.add(returnRoute2);
-		returnRouteList.add(returnRoute3);
-		returnRouteList.add(returnRoute4);
-		List<List<Integer>> result = ob.optimalUtilization(maxTravelDist, forwardRouteList, returnRouteList);
-		for (List<Integer> s : result) {
-			System.out.println(s);
-		}
+		// Test case 1
+		int maxTravelDist1 = 7000;
+		List<List<Integer>> forwardRouteList1 = new ArrayList<>();
+		List<List<Integer>> returnRouteList1 = new ArrayList<>();
+		List<Integer> forwardRoute11 = new ArrayList<>();
+		forwardRoute11.add(1);
+		forwardRoute11.add(2000);
+		List<Integer> forwardRoute12 = new ArrayList<>();
+		forwardRoute12.add(2);
+		forwardRoute12.add(4000);
+		List<Integer> forwardRoute13 = new ArrayList<>();
+		forwardRoute13.add(3);
+		forwardRoute13.add(6000);
+		forwardRouteList1.add(forwardRoute11);
+		forwardRouteList1.add(forwardRoute12);
+		forwardRouteList1.add(forwardRoute13);
+
+		List<Integer> returnRoute11 = new ArrayList<>();
+		returnRoute11.add(1);
+		returnRoute11.add(2000);
+
+		returnRouteList1.add(returnRoute11);
+
+		List<List<Integer>> result1 = ob.optimalUtilization(maxTravelDist1, forwardRouteList1, returnRouteList1);
+		System.out.println("Test case1:" + result1);
+
+		// Test case 2
+		int maxTravelDist2 = 10000;
+		List<List<Integer>> forwardRouteList2 = new ArrayList<>();
+		List<List<Integer>> returnRouteList2 = new ArrayList<>();
+		List<Integer> forwardRoute21 = new ArrayList<>();
+		forwardRoute21.add(1);
+		forwardRoute21.add(3000);
+		List<Integer> forwardRoute22 = new ArrayList<>();
+		forwardRoute22.add(2);
+		forwardRoute22.add(5000);
+		List<Integer> forwardRoute23 = new ArrayList<>();
+		forwardRoute23.add(3);
+		forwardRoute23.add(7000);
+		List<Integer> forwardRoute24 = new ArrayList<>();
+		forwardRoute24.add(4);
+		forwardRoute24.add(10000);
+		forwardRouteList2.add(forwardRoute21);
+		forwardRouteList2.add(forwardRoute22);
+		forwardRouteList2.add(forwardRoute23);
+		forwardRouteList2.add(forwardRoute24);
+
+		List<Integer> returnRoute21 = new ArrayList<>();
+		returnRoute21.add(1);
+		returnRoute21.add(2000);
+		List<Integer> returnRoute22 = new ArrayList<>();
+		returnRoute22.add(2);
+		returnRoute22.add(3000);
+		List<Integer> returnRoute23 = new ArrayList<>();
+		returnRoute23.add(3);
+		returnRoute23.add(4000);
+		List<Integer> returnRoute24 = new ArrayList<>();
+		returnRoute24.add(4);
+		returnRoute24.add(5000);
+		returnRouteList2.add(returnRoute21);
+		returnRouteList2.add(returnRoute22);
+		returnRouteList2.add(returnRoute23);
+		returnRouteList2.add(returnRoute24);
+		List<List<Integer>> result = ob.optimalUtilization(maxTravelDist2, forwardRouteList2, returnRouteList2);
+		System.out.println("Test case2:" + result);
+
+		// Test case 2
+
 	}
 }

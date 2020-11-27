@@ -23,10 +23,14 @@ public class Test {
 		List<Integer> indexes = new ArrayList<>();
 		for (int i = 1; i < parts.size(); i++) {
 			if (big <= parts.get(i)) {
+				if (big < parts.get(i)) {
+					indexes.clear();
+				}
 				big = parts.get(i);
 				indexes.add(i);
 			}
 		}
+
 		System.out.println("Biggest Number:" + big);
 		return indexes;
 	}
