@@ -119,8 +119,5 @@ class Solution2 {
 		returnRouteList2.add(returnRoute24);
 		List<List<Integer>> result = ob.optimalUtilization(maxTravelDist2, forwardRouteList2, returnRouteList2);
 		System.out.println("Test case2:" + result);
-
-		// Test case 2
-
 	}
 }
