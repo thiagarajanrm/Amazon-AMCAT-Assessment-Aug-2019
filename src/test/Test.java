@@ -13,7 +13,6 @@ public class Test {
 		parts.add(8);
 		parts.add(7);
 		parts.add(8);
-
 		Test ob = new Test();
 		System.out.println("Indexs with max value:" + ob.getIndex(parts));
 	}
